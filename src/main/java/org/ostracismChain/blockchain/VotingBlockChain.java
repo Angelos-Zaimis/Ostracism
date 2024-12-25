@@ -1,26 +1,19 @@
 package org.ostracismChain.blockchain;
 
+import org.ostracismChain.consensus.PoAValidator;
+import org.ostracismChain.consensus.ValidatorRegistry;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class VotingBlockChain {
 
     private List<VotingBlock> votingChain;
-    private static List<String> activeValidators = new ArrayList<>();
+    private PoAValidator poAValidator;
 
-    public VotingBlockChain() {
+    public VotingBlockChain(ValidatorRegistry validatorRegistry, String validatorId) {
         this.votingChain = new ArrayList<>();
-    }
-
-    public static void registerValidator(String validator) {
-        if (!activeValidators.contains(validator)) {
-            activeValidators.add(validator);
-            System.out.println("Registered validator: " + validator);
-        }
-    }
-
-    public static void unregisterValidator(String validator) {
-        activeValidators.remove(validator);
+        this.poAValidator = new PoAValidator(validatorId, validatorRegistry);
     }
 
     public void addVotingBlock(VotingBlock votingBlock) {
@@ -30,7 +23,7 @@ public class VotingBlockChain {
         } else {
             VotingBlock lastVotingBlock = votingChain.get(votingChain.size() - 1);
 
-            if (lastVotingBlock.getBlockHash().equals(votingBlock.getPreviousBlockHash())) {
+            if (poAValidator.validateVotingBlock(lastVotingBlock, votingBlock)) {
                 votingChain.add(votingBlock);
                 System.out.println("Block added to the blockchain: " + votingBlock);
             } else {
@@ -47,9 +40,5 @@ public class VotingBlockChain {
         for (VotingBlock votingBlock : votingChain) {
             System.out.println(votingBlock);
         }
-    }
-
-    public List<String> getActiveValidators() {
-        return activeValidators;
     }
 }
