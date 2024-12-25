@@ -1,4 +1,6 @@
-package org.ostracismChain.core;
+package org.ostracismChain.blockchain;
+
+import org.ostracismChain.transaction.VotingTrasaction;
 
 import java.security.MessageDigest;
 import java.util.Date;

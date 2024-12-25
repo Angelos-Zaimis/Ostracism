@@ -1,8 +1,8 @@
 package org.ostracismChain;
 
-import org.ostracismChain.core.VotingBlock;
-import org.ostracismChain.core.VotingBlockChain;
-import org.ostracismChain.core.VotingTrasaction;
+import org.ostracismChain.blockchain.VotingBlock;
+import org.ostracismChain.blockchain.VotingBlockChain;
+import org.ostracismChain.transaction.VotingTrasaction;
 
 import java.util.List;
 import java.util.Date;
@@ -11,7 +11,6 @@ public class OstracismChainMain {
 
     private final VotingBlockChain votingBlockChain;
 
-    // Constructor
     public OstracismChainMain() {
         this.votingBlockChain = new VotingBlockChain();
     }
