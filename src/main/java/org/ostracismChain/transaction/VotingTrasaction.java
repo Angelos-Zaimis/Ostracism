@@ -1,4 +1,4 @@
-package org.ostracismChain.core;
+package org.ostracismChain.transaction;
 
 import java.util.Date;
 

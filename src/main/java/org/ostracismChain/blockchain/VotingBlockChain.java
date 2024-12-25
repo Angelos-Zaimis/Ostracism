@@ -1,4 +1,4 @@
-package org.ostracismChain.core;
+package org.ostracismChain.blockchain;
 
 import java.util.ArrayList;
 import java.util.List;
