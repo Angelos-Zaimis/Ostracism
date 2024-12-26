@@ -9,9 +9,8 @@ public class PoAValidator {
     private String validator;
     private ValidatorRegistry validatorRegistry;
 
-    public PoAValidator(String validator, ValidatorRegistry validatorRegistry) {
-        this.validator = validator;
-        this.validatorRegistry = validatorRegistry;
+    public PoAValidator() {
+
     }
 
     private boolean isValidatorAuthorized() {

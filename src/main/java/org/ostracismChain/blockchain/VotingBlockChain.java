@@ -9,11 +9,10 @@ import java.util.List;
 public class VotingBlockChain {
 
     private List<VotingBlock> votingChain;
-    private PoAValidator poAValidator;
+    private final PoAValidator poAValidator;
 
-    public VotingBlockChain(ValidatorRegistry validatorRegistry, String validatorId) {
-        this.votingChain = new ArrayList<>();
-        this.poAValidator = new PoAValidator(validatorId, validatorRegistry);
+    public VotingBlockChain() {
+        this.poAValidator = new PoAValidator();
     }
 
     public void addVotingBlock(VotingBlock votingBlock) {

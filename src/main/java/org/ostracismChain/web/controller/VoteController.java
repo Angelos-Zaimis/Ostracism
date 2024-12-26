@@ -4,12 +4,19 @@ import com.google.gson.Gson;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import org.ostracismChain.web.dto.VoteRequest;
+import org.ostracismChain.web.service.VoteService;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class VoteController implements HttpHandler{
+
+    private final VoteService voteService;
+
+    public VoteController(VoteService voteService) {
+        this.voteService = voteService;
+    }
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
@@ -30,6 +37,7 @@ public class VoteController implements HttpHandler{
             String voterId = voteRequest.getVoterId();
             String candidateId = voteRequest.getCandidateId();
 
+            voteService.handleCreateVote(voterId, candidateId);
         }
     }
 }
