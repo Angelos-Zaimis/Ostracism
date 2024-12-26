@@ -17,7 +17,7 @@ public class VotingBlockChain {
     }
 
     public void addVotingBlock(VotingBlock votingBlock) {
-        if (votingChain.size() == 0) {
+        if (votingChain.isEmpty()) {
             votingChain.add(votingBlock);
             System.out.println("Added first voting block: " + votingBlock);
         } else {

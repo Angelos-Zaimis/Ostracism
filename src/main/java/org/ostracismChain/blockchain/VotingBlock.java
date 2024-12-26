@@ -8,56 +8,28 @@ import java.util.List;
 
 public class VotingBlock {
 
-    private int index;
-    private String blockHash;
-    private String previousBlockHash;
-    private List<VotingTrasaction> votingTrasactions;
-    private int nonce;
-    private long timestamp;
-    private String proposedByValidator;
+    private final String blockHash;
+    private final String previousBlockHash;
+    private final List<VotingTrasaction> votingTransactions;
+    private final int nonce;
+    private final String proposedByValidator;
 
-    // Voting block class with POA implementation
     public VotingBlock(int index, String previousBlockHash, List<VotingTrasaction> votingTrasactions, String proposedByValidator) {
-        this.index = index;
+
         this.previousBlockHash = previousBlockHash;
-        this.votingTrasactions = votingTrasactions;
+        this.votingTransactions = votingTrasactions;
         this.nonce = 0;
-        this.timestamp = new Date().getTime();
+        long timestamp = new Date().getTime();
         this.proposedByValidator = proposedByValidator;
         this.blockHash = calculateHash();
-    }
-
-    public int getIndex() {
-        return index;
-    }
-
-    public String getBlockHash() {
-        return blockHash;
-    }
-
-    public String getPreviousBlockHash() {
-        return previousBlockHash;
-    }
-
-    public List<VotingTrasaction> getTrasactions() {
-        return votingTrasactions;
-    }
-
-    @Override
-    public String toString() {
-        return "Block " + index + ": " + blockHash;
-    }
-
-    public String getProposedByValidator() {
-        return proposedByValidator;
     }
 
     private String calculateHash() {
         try {
             StringBuilder blockHashBuilder = new StringBuilder(previousBlockHash);
-            blockHashBuilder.append(index).append(nonce).append(proposedByValidator);
+            blockHashBuilder.append(nonce).append(proposedByValidator);
 
-            for (VotingTrasaction transaction : votingTrasactions) {
+            for (VotingTrasaction transaction : votingTransactions) {
                 blockHashBuilder.append(transaction.toString());
             }
 
@@ -73,5 +45,26 @@ public class VotingBlock {
         } catch (Exception e) {
             throw new RuntimeException("Error calculating hash", e);
         }
+    }
+
+    public String getBlockHash() {
+        return blockHash;
+    }
+
+    public String getPreviousBlockHash() {
+        return previousBlockHash;
+    }
+
+    public List<VotingTrasaction> getTransactions() {
+        return votingTransactions;
+    }
+
+    @Override
+    public String toString() {
+        return "Block: " + blockHash;
+    }
+
+    public String getProposedByValidator() {
+        return proposedByValidator;
     }
 }
