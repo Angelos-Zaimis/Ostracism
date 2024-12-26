@@ -1,43 +1,23 @@
 package org.ostracismChain;
 
-import org.ostracismChain.blockchain.VotingBlock;
-import org.ostracismChain.blockchain.VotingBlockChain;
-import org.ostracismChain.transaction.VotingTrasaction;
+import org.ostracismChain.network.NetworkManager;
+import org.ostracismChain.network.P2PServer;
+import org.ostracismChain.web.WebServer;
 
-import java.util.List;
-import java.util.Date;
+import java.io.IOException;
 
 public class OstracismChainMain {
 
-    private final VotingBlockChain votingBlockChain;
+    public static void main(String[] args) throws IOException {
 
-    public OstracismChainMain() {
-        this.votingBlockChain = new VotingBlockChain();
-    }
+        P2PServer p2pServer = new P2PServer();
+        p2pServer.startServer();
 
-    public static void main(String[] args) {
-        // Initialize the main class
-        OstracismChainMain main = new OstracismChainMain();
+        NetworkManager networkManager = new NetworkManager();
+        networkManager.startServer();
 
-        // Register some validators
-        VotingBlockChain.registerValidator("ValidatorA");
-        VotingBlockChain.registerValidator("ValidatorB");
-        VotingBlockChain.registerValidator("ValidatorC");
+        WebServer webServer = new WebServer();
+        webServer.startServer();
 
-        // Create some example vote transactions
-        VotingTrasaction vote1 = new VotingTrasaction("Alice", "Candidate A", 1, new Date());
-        VotingTrasaction vote2 = new VotingTrasaction("Bob", "Candidate B", 1, new Date());
-
-        // Create and add the first block
-        VotingBlock block1 = new VotingBlock(1, "0000abcd1234efgh", List.of(vote1, vote2), "ValidatorA");
-        main.votingBlockChain.addVotingBlock(block1);
-
-        // Create another block and add it
-        VotingTrasaction vote3 = new VotingTrasaction("Charlie", "Candidate C", 1, new Date());
-        VotingBlock block2 = new VotingBlock(2, block1.getBlockHash(), List.of(vote3), "ValidatorB");
-        main.votingBlockChain.addVotingBlock(block2);
-
-        // Display the blockchain
-        main.votingBlockChain.displayVotingChain();
     }
 }

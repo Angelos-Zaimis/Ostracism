@@ -2,18 +2,26 @@ package org.ostracismChain.transaction;
 
 import java.util.Date;
 
-public class VotingTrasaction {
-
+public class VotingTransaction {
     private String voter;
     private String candidate;
     private int amount;
-    private Date timestamp;
+    private final Date timestamp;
 
-    public VotingTrasaction(String voter, String candidate, int amount, Date timestamp) {
+    public VotingTransaction() {
+        this.timestamp = new Date();
+    }
+
+    public void setVoter(String voter) {
         this.voter = voter;
+    }
+
+    public void setCandidate(String candidate) {
         this.candidate = candidate;
+    }
+
+    public void setAmount(int amount) {
         this.amount = amount;
-        this.timestamp = timestamp;
     }
 
     public String getVoter() {
@@ -32,7 +40,8 @@ public class VotingTrasaction {
         return timestamp;
     }
 
+    @Override
     public String toString() {
-        return voter + " votes " + amount + " for " + candidate + " at " + timestamp.toString();
+        return voter + " votes " + amount + " for " + candidate + " at " + timestamp;
     }
 }
