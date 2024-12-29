@@ -42,6 +42,11 @@ public class VotingTransaction {
 
     @Override
     public String toString() {
-        return voter + " votes " + amount + " for " + candidate + " at " + timestamp;
+        return "VotingTransaction{" +
+                "voterId='" + voter + '\'' +
+                ", candidateId='" + candidate + '\'' +
+                ", amount=" + amount +
+                ", timestamp='" + timestamp + '\'' +
+                '}';
     }
 }

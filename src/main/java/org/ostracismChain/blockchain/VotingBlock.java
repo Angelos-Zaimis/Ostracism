@@ -1,6 +1,9 @@
 package org.ostracismChain.blockchain;
 
+import com.google.gson.Gson;
 import org.ostracismChain.transaction.VotingTransaction;
+
+import javax.swing.plaf.PanelUI;
 import java.security.MessageDigest;
 import java.util.List;
 
@@ -11,7 +14,6 @@ public class VotingBlock {
     private String proposedByValidator;
 
     public VotingBlock() {
-        // default constructor
     }
 
     public void calculateHash() {
@@ -26,7 +28,6 @@ public class VotingBlock {
                 }
             }
 
-            // Just an example with SHA-256
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
             byte[] hashBytes = digest.digest(blockString.toString().getBytes());
 
@@ -42,14 +43,17 @@ public class VotingBlock {
     }
 
     public String getBlockHash() { return blockHash; }
+
     public void setBlockHash(String blockHash) { this.blockHash = blockHash; }
 
     public String getPreviousBlockHash() { return previousBlockHash; }
+
     public void setPreviousBlockHash(String previousBlockHash) {
         this.previousBlockHash = previousBlockHash;
     }
 
     public List<VotingTransaction> getVotingTransactions() { return votingTransactions; }
+
     public void setVotingTransactions(List<VotingTransaction> votingTransactions) {
         this.votingTransactions = votingTransactions;
     }
@@ -66,5 +70,10 @@ public class VotingBlock {
                 ", previousBlockHash='" + previousBlockHash + '\'' +
                 ", proposedByValidator='" + proposedByValidator + '\'' +
                 '}';
+    }
+
+    public String toJsonString() {
+        Gson gson = new Gson();
+        return gson.toJson(this);
     }
 }
