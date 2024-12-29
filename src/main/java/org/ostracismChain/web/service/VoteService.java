@@ -31,7 +31,7 @@ public class VoteService {
 
         votingBlockChain.addVotingBlock(newBlock);
 
-        if (isBockValid(newBlock, votingBlockChain)) {
+        if (isBlockValid(newBlock, votingBlockChain)) {
             broadCastVoteToPeers(newBlock);
             return true;
         } else {
@@ -65,7 +65,7 @@ public class VoteService {
         return newBlock;
     }
 
-    private boolean isBockValid(VotingBlock votingBlock, VotingBlockChain votingBlockChain) {
+    private boolean isBlockValid(VotingBlock votingBlock, VotingBlockChain votingBlockChain) {
         if(!blockValidationService.validateBlock(votingBlock, votingBlockChain)){
             return false;
         }
