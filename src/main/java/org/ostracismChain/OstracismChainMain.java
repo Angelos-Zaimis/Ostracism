@@ -14,11 +14,6 @@ public class OstracismChainMain {
         ExecutorService executor = Executors.newFixedThreadPool(3); // Adjust the pool size as needed
 
         executor.submit(() -> {
-            P2PServer p2pServer = new P2PServer();
-            p2pServer.startServer();
-        });
-
-        executor.submit(() -> {
             NetworkManager networkManager = new NetworkManager();
             networkManager.startServer();
         });

@@ -11,7 +11,7 @@ import java.util.concurrent.Executors;
 
 public class P2PServer {
 
-    private static final int PORT = 8334;
+    private static final int PORT = 8333;
     private final ExecutorService threadPool;
 
     public P2PServer() {
