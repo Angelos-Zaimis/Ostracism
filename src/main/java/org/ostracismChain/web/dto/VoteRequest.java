@@ -8,7 +8,15 @@ public class VoteRequest {
         return voterId;
     }
 
+    public void setVoterId(String voterId) {
+        this.voterId = voterId;
+    }
+
     public String getCandidateId() {
         return candidateId;
+    }
+
+    public void setCandidateId(String candidateId) {
+        this.candidateId = candidateId;
     }
 }

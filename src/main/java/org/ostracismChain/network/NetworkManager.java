@@ -33,9 +33,9 @@ public class NetworkManager {
         }
     }
 
-    public void broadcastMessage(String message) {
+    public void broadcastBlock(String block) {
         for (Node peer : peers) {
-            peer.sendMessage(message);
+            peer.sendMessage(block);
         }
     }
 

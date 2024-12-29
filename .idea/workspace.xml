@@ -5,18 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0dd891b-d8fb-4243-a7f4-21a76ed1c1a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/VoteService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/validation/BlockValidationService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/validation/TransactionValidationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/OstracismChainMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/OstracismChainMain.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/blockchain/VotingBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/blockchain/VotingBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/blockchain/VotingBlockChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/blockchain/VotingBlockChain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/consensus/PoAValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/consensus/PoAValidator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/transaction/VotingTrasaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/transaction/VotingTransaction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/consensus/ValidatorRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/consensus/ValidatorRegistry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/network/NetworkManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/network/NetworkManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/transaction/VotingTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/transaction/VotingTransaction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/controller/VoteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/controller/VoteController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/VoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/VoteService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,20 +64,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Gradle.OstracismChain [:org.ostracismChain.OstracismChainMain.main()].executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feat/CreateWebServer&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Gradle.OstracismChain [:org.ostracismChain.OstracismChainMain.main()].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "feat/UpdatePeersWhenCreatingBlock",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="OstracismChainMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.ostracismChain.OstracismChainMain" />
@@ -131,7 +131,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/org/ostracismChain/blockchain/VotingBlock.java</url>
-          <line>61</line>
+          <line>65</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
