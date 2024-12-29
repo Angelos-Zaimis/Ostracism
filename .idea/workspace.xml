@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0dd891b-d8fb-4243-a7f4-21a76ed1c1a8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/validation/BlockValidationService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/validation/TransactionValidationService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/blockchain/VotingBlock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/blockchain/VotingBlock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/consensus/ValidatorRegistry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/consensus/ValidatorRegistry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/network/NetworkManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/network/NetworkManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/transaction/VotingTransaction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/transaction/VotingTransaction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/WebServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/WebServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/VoteService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/web/service/VoteService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/ostracismChain/OstracismChainMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/ostracismChain/OstracismChainMain.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,9 +59,9 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Gradle.OstracismChain [:org.ostracismChain.OstracismChainMain.main()].executor": "Run",
+    "Gradle.OstracismChain [:org.ostracismChain.OstracismChainMain.main()].executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "feat/UpdatePeersWhenCreatingBlock",
+    "git-widget-placeholder": "feat/PeerReceivingNewBlock",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
