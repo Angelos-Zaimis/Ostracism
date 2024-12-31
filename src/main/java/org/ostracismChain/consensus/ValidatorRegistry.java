@@ -5,11 +5,9 @@ import java.util.Set;
 
 public class ValidatorRegistry {
 
-    private final Set<String> validators;
-
     public ValidatorRegistry() {
-        this.validators = new HashSet<>();
     }
+
 
     public void registerValidator(String validator) {
         if (!validators.contains(validator)) {

@@ -2,12 +2,12 @@ package org.ostracismChain.web.service;
 
 import org.ostracismChain.blockchain.VotingBlock;
 import org.ostracismChain.blockchain.VotingBlockChain;
+import org.ostracismChain.consensus.VoterRegistry;
 import org.ostracismChain.network.NetworkManager;
 import org.ostracismChain.transaction.VotingTransaction;
 import org.ostracismChain.web.service.validation.BlockValidationService;
 import org.ostracismChain.web.service.validation.TransactionValidationService;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class VoteService {
@@ -16,16 +16,22 @@ public class VoteService {
     private final NetworkManager networkManager;
     private final BlockValidationService blockValidationService;
     private final TransactionValidationService transactionValidationService;
+    private final TransactionService transactionService;
 
-    public VoteService() {
-        this.votingBlockChain = new VotingBlockChain();
-        this.networkManager = new NetworkManager();
-        this.blockValidationService = new BlockValidationService();
-        this.transactionValidationService = new TransactionValidationService();
+    public VoteService(VotingBlockChain votingBlockChain,
+                       NetworkManager networkManager,
+                       BlockValidationService blockValidationService,
+                       TransactionValidationService transactionValidationService,
+                       TransactionService transactionService) {
+        this.votingBlockChain = votingBlockChain;
+        this.networkManager = networkManager;
+        this.blockValidationService = blockValidationService;
+        this.transactionValidationService = transactionValidationService;
+        this.transactionService = transactionService;
     }
 
     public boolean handleCreateVote(String voterId, String candidateId) {
-        List<VotingTransaction> votingTransactions = createTransaction(voterId, candidateId);
+        List<VotingTransaction> votingTransactions = transactionService.createTransaction(voterId, candidateId);
 
         VotingBlock newBlock = createNewVotingBlock(votingTransactions);
 
@@ -37,17 +43,6 @@ public class VoteService {
         } else {
             return false;
         }
-    }
-
-    private List<VotingTransaction> createTransaction(String voterId, String candidateId) {
-        List<VotingTransaction> transactions = new ArrayList<>();
-        VotingTransaction votingTransaction = new VotingTransaction();
-        votingTransaction.setVoter(voterId);
-        votingTransaction.setCandidate(candidateId);
-        votingTransaction.setAmount(1);
-        transactions.add(votingTransaction);
-
-        return transactions;
     }
 
     private VotingBlock createNewVotingBlock(List<VotingTransaction> votingTransactions) {
