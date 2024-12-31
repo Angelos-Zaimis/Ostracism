@@ -3,33 +3,35 @@ package org.ostracismChain.transaction;
 import java.util.Date;
 
 public class VotingTransaction {
-    private String voter;
-    private String candidate;
+    private String voterId;
+    private String candidateId;
     private int amount;
     private final Date timestamp;
+    private String signature;
+    private String dataToSign;
 
     public VotingTransaction() {
         this.timestamp = new Date();
     }
 
     public void setVoter(String voter) {
-        this.voter = voter;
+        this.voterId = voter;
     }
 
     public void setCandidate(String candidate) {
-        this.candidate = candidate;
+        this.candidateId = candidate;
     }
 
     public void setAmount(int amount) {
         this.amount = amount;
     }
 
-    public String getVoter() {
-        return voter;
+    public String getVoterId() {
+        return voterId;
     }
 
-    public String getCandidate() {
-        return candidate;
+    public String getCandidateId() {
+        return candidateId;
     }
 
     public int getAmount() {
@@ -40,11 +42,32 @@ public class VotingTransaction {
         return timestamp;
     }
 
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
+    public String getDataToSign() {
+        return "voterId=" + voterId +
+                "&candidateId=" + candidateId +
+                "&amount=" + amount +
+                "&timestamp=" + timestamp;
+    }
+
+    public void setDataToSign(String dataToSign) {
+        this.dataToSign = dataToSign;
+    }
+
+
+
     @Override
     public String toString() {
         return "VotingTransaction{" +
-                "voterId='" + voter + '\'' +
-                ", candidateId='" + candidate + '\'' +
+                "voterId='" + voterId + '\'' +
+                ", candidateId='" + candidateId + '\'' +
                 ", amount=" + amount +
                 ", timestamp='" + timestamp + '\'' +
                 '}';

@@ -6,7 +6,6 @@ import javax.xml.validation.Validator;
 
 public class PoAValidator {
 
-    private String validator;
     private ValidatorRegistry validatorRegistry;
 
     public PoAValidator() {
