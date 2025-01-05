@@ -1,34 +1,36 @@
 package org.ostracismChain.blockchain;
 
-import org.ostracismChain.consensus.PoAValidator;
-import org.ostracismChain.consensus.ValidatorRegistry;
+import org.ostracismChain.storage.VotingBlockDAO;
+
+import java.util.List;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class VotingBlockChain {
 
     private List<VotingBlock> votingChain;
-    private final PoAValidator poAValidator;
+    private final VotingBlockDAO votingBlockDAO;
 
-    public VotingBlockChain() {
-        this.poAValidator = new PoAValidator();
+    public VotingBlockChain(VotingBlockDAO votingBlockDAO) {
+        this.votingBlockDAO = votingBlockDAO;
+        this.votingChain = new ArrayList<>(votingBlockDAO.getAllBlocks());
+
+        if (votingChain.isEmpty()) {
+            VotingBlock genesisBlock = createGenesisBlock();
+            addVotingBlock(genesisBlock);
+        }
+    }
+
+    private VotingBlock createGenesisBlock() {
+        VotingBlock genesisBlock = new VotingBlock(0, System.currentTimeMillis(), "Genesis Block", "0");
+        genesisBlock.setHash(genesisBlock.calculateHash());
+        return genesisBlock;
     }
 
     public void addVotingBlock(VotingBlock votingBlock) {
-        if (votingChain.isEmpty()) {
-            votingChain.add(votingBlock);
-            System.out.println("Added first voting block: " + votingBlock);
-        } else {
-            VotingBlock lastVotingBlock = votingChain.get(votingChain.size() - 1);
-
-            if (poAValidator.validateVotingBlock(lastVotingBlock, votingBlock)) {
-                votingChain.add(votingBlock);
-                System.out.println("Block added to the blockchain: " + votingBlock);
-            } else {
-                System.out.println("Invalid block. The block hash does not match the previous block.");
-            }
-        }
+        votingChain.add(votingBlock);
+        votingBlockDAO.saveBlock(votingBlock);
+        System.out.println("Added voting block: " + votingBlock);
     }
 
     public VotingBlock getLastVotingBlock() {

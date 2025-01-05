@@ -5,7 +5,10 @@ import java.util.Set;
 
 public class ValidatorRegistry {
 
+    private Set<String> validators;
+
     public ValidatorRegistry() {
+        this.validators = new HashSet<>();
     }
 
 
