@@ -3,12 +3,12 @@ package org.ostracismChain.transaction;
 import java.util.Date;
 
 public class VotingTransaction {
+
     private String voterId;
     private String candidateId;
     private int amount;
     private final Date timestamp;
     private String signature;
-    private String dataToSign;
 
     public VotingTransaction() {
         this.timestamp = new Date();
@@ -56,12 +56,6 @@ public class VotingTransaction {
                 "&amount=" + amount +
                 "&timestamp=" + timestamp;
     }
-
-    public void setDataToSign(String dataToSign) {
-        this.dataToSign = dataToSign;
-    }
-
-
 
     @Override
     public String toString() {

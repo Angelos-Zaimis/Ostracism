@@ -33,7 +33,6 @@ public class TransactionService {
         votingTransaction.setCandidate(candidateId);
         votingTransaction.setAmount(1);
         String dataToSign = votingTransaction.getDataToSign();
-        votingTransaction.setDataToSign(dataToSign);
 
         try {
             String signature = signData(dataToSign, voterId);

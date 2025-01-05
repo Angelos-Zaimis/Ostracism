@@ -2,7 +2,6 @@ package org.ostracismChain.web.service;
 
 import org.ostracismChain.blockchain.VotingBlock;
 import org.ostracismChain.blockchain.VotingBlockChain;
-import org.ostracismChain.consensus.VoterRegistry;
 import org.ostracismChain.network.NetworkManager;
 import org.ostracismChain.transaction.VotingTransaction;
 import org.ostracismChain.web.service.validation.BlockValidationService;
@@ -31,6 +30,7 @@ public class VoteService {
     }
 
     public boolean handleCreateVote(String voterId, String candidateId) {
+
         List<VotingTransaction> votingTransactions = transactionService.createTransaction(voterId, candidateId);
 
         VotingBlock newBlock = createNewVotingBlock(votingTransactions);
@@ -65,11 +65,7 @@ public class VoteService {
             return false;
         }
 
-        if (!transactionValidationService.validateTransactions(votingBlock.getVotingTransactions())) {
-            return false;
-        }
-
-        return true;
+        return transactionValidationService.validateTransactions(votingBlock.getVotingTransactions());
     }
 
     private void broadCastVoteToPeers(VotingBlock newBlock) {

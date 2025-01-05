@@ -1,7 +1,6 @@
 package org.ostracismChain;
 
 import org.ostracismChain.network.NetworkManager;
-import org.ostracismChain.network.P2PServer;
 import org.ostracismChain.web.WebServer;
 
 import java.io.IOException;
@@ -10,8 +9,8 @@ import java.util.concurrent.Executors;
 
 public class OstracismChainMain {
 
-    public static void main(String[] args) throws IOException {
-        ExecutorService executor = Executors.newFixedThreadPool(3); // Adjust the pool size as needed
+    public static void main(String[] args) {
+        ExecutorService executor = Executors.newFixedThreadPool(2);
 
         executor.submit(() -> {
             NetworkManager networkManager = new NetworkManager();

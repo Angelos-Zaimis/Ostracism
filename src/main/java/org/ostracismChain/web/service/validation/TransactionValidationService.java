@@ -6,8 +6,6 @@ import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.util.Base64;
 import java.security.PublicKey;
-import java.util.Base64;
-import java.util.Date;
 import java.util.List;
 
 public class TransactionValidationService {
@@ -29,9 +27,8 @@ public class TransactionValidationService {
         return true;
     }
 
-
     private boolean validateTransaction(VotingTransaction transaction) {
-        return verifySignature(transaction);
+        return verifySignature(transaction) && isVoterEligible(transaction);
     }
 
     private boolean verifySignature(VotingTransaction transaction) {
@@ -81,4 +78,7 @@ public class TransactionValidationService {
         return publicKey;
     }
 
+    private boolean isVoterEligible(VotingTransaction transaction) {
+        return voterRegistry.isVoterRegistered(transaction.getVoterId());
+    }
 }

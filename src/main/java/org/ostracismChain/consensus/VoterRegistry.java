@@ -14,4 +14,8 @@ public class VoterRegistry {
     public PublicKey getVoterPublicKey(String voterId) {
         return voterPublicKeys.get(voterId);
     }
+
+    public boolean isVoterRegistered(String voterId) {
+        return voterPublicKeys.containsKey(voterId);
+    }
 }
